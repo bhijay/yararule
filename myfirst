@@ -1,0 +1,36 @@
+private rule StudentCode
+{
+
+	condition:
+               code == 156330
+
+}
+
+
+
+rule dummy 
+{
+	meta:
+	   author = "Bolaji Ladokun"
+	   description = "Malware Rule"
+
+	strings:
+	    
+	   $file_1 = "W!x^DkKxPtAUuZ"	
+	   $file_2 = "?=?C?N?S?l?y?"
+	   $file_3 = "?^eNNE%"
+	   $file_4 = ")Y0WKN@b"
+	   $file_5_1 = "9$9,949<9D9L9T9\\9d9l9t9|9"
+	   //$file_5_2 = "=3>8>}>"
+	   $paper1 = ",Jf9e3o&"
+	   $paper2 = "dP^l"
+	   $paper3 = "k^#;b^,oy?j"
+	   $paper4 = "-tQR>@L@l"
+
+	condition:
+		($file_5_1 and filesize == 41KB) or
+		($paper1 or $paper2 or $paper3 or $paper4 or $file_1 or $file_2 or $file_3 or $file_4) and StudentCode
+
+}
+
+
